@@ -11,7 +11,7 @@ include(CMakeImplFiles.cmake)
 # Setup
 ##################################################################################################################
 project(imgui
-        VERSION 1.71
+        VERSION 1.87
         LANGUAGES CXX
         DESCRIPTION "ImGui library."
 )
@@ -36,7 +36,7 @@ if (WIN32)
 endif()
 
 set(SOURCE_DIR ${CMAKE_CURRENT_SOURCE_DIR}/imgui)
-set(EXAMPLES_DIR ${SOURCE_DIR}/examples)
+set(BACKENDS_DIR ${SOURCE_DIR}/backends)
 set(FONTS_DIR ${SOURCE_DIR}/misc/fonts)
 
 
@@ -103,7 +103,7 @@ add_library(${PROJECT_NAME}
 )
 target_include_directories(${PROJECT_NAME} PUBLIC 
     ${SOURCE_DIR}
-    ${SOURCE_DIR}/examples
+    ${SOURCE_DIR}/backends
 )
 if(IMGUI_IMPL_DX12 AND NOT IMGUI_STATIC_LIBRARY)
     target_link_libraries(${PROJECT_NAME} PUBLIC d3d12)
