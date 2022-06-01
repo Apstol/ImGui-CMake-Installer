@@ -53,6 +53,18 @@ function(Init_Impl_Files HEADERS_CXX_IMPL_FILES SOURCES_CXX_IMPL_FILES)
       ${EXAMPLES_DIR}/imgui_impl_win32.cpp
       PARENT_SCOPE
     )
+  elseif(IMGUI_IMPL_SDL)
+    message(STATUS "[INFO] Including SDL implementation files.")
+    set(HEADERS_CXX_IMPL_FILES
+      ${EXAMPLES_DIR}/imgui_impl_sdl.h
+      ${EXAMPLES_DIR}/imgui_impl_sdlrenderer.h
+      PARENT_SCOPE
+    )
+    set(SOURCES_CXX_IMPL_FILES
+      ${EXAMPLES_DIR}/imgui_impl_sdl.cpp
+      ${EXAMPLES_DIR}/imgui_impl_sdlrenderer.cpp
+      PARENT_SCOPE
+    )
   else()
     message(WARNING "[WARNING] 'IMGUI_WITH_IMPL' option is ON but no additional files were added. See file 'CMakeOptions.cmake'.")
   endif()
